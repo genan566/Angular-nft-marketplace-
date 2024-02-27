@@ -1,0 +1,27 @@
+<div class="flex items-center justify-between gap-4 w-full">
+  <div *ngIf="categories_trending_data.length" class="flex items-center gap-6">
+    <span
+      class="rounded-md text-white text-[.8rem] px-[1rem] p-1 transition-all active:scale-95 cursor-pointer bg-blue-400"
+      *ngFor="let categorie of categories_trending_data"
+    >
+      {{ categorie.name }}
+    </span>
+  </div>
+
+  <p
+    class="text-[.8rem] text-white/500"
+    *ngIf="!categories_trending_data.length"
+  >
+    Aucune catégories n'est disponible pour le moment.
+  </p>
+
+  <div class="max-w-[200px] w-full">
+    <input
+      type="text"
+      class="bg-transparent px-[1rem] border-[1px] text-[.8rem] py-[.25rem] border-white/20 rounded-md"
+      placeholder="Rechercher"
+      #searchBox
+      (input)="search(searchBox.value)"
+    />
+  </div>
+</div>

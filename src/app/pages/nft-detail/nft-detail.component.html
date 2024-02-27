@@ -1,0 +1,64 @@
+<div class="mx-auto max-w-[1100px]">
+  <button
+    (click)="goBack()"
+    class="bg-white text-black rounded-md py-1 mb-16 mt-8 transition-all active:scale-90 px-2 text-sm"
+  >
+    Retour
+  </button>
+
+  <section
+    class="flex gap-[5rem] items-start w-full relative justify-center transition-all max-[1080px]:flex-wrap"
+  >
+    <figure
+      class="sticky magic_shadow top-[5rem] w-[600px] h-[500px] transition-all max-[1080px]:w-full max-[1080px]:max-w-[800px] max-[1080px]:relative max-[1080px]:top-[none] max-[1080px]:mb-[5rem]"
+    >
+      <img
+        [src]="currentNFT?.image"
+        alt="Posts Picture"
+        class="w-full h-full object-cover rounded-[1rem]"
+      />
+    </figure>
+    <div
+      class="w-1/2 border-[1px] border-[#ffffff13] p-[2rem] transition-all bg-[#161110c4] rounded-[1rem] max-[1080px]:w-full"
+    >
+      <h3
+        class="first:mt-0 text-[1.15rem] mt-[2rem] mb-[.5rem] font-MontSemiBold"
+      >
+        Title
+      </h3>
+      <div
+        class="text-[.94rem] text-white/75 leading-[2rem] border-t-[1px] border-[#ffffff13] pt-[1rem]"
+      >
+        {{ currentNFT?.title }}
+      </div>
+      <div class="flex items-center gap-4 mt-4 flex-wrap">
+        <p
+          *ngFor="let categorie of currentNFT?.categories_trending"
+          class="text-[.8rem] border-[1px] border-violet-400 rounded-full px-2 py-1"
+        >
+          {{ categorie | categorieName }}
+        </p>
+      </div>
+      <h3
+        class="first:mt-0 text-[1.15rem] mt-[2rem] mb-[.5rem] font-MontSemiBold"
+      >
+        Description
+      </h3>
+      <div
+        class="text-[.94rem] text-white/75 leading-[2rem] border-t-[1px] border-[#ffffff13] pt-[1rem]"
+      >
+        {{ currentNFT?.description }}
+      </div>
+      <h3
+        class="first:mt-0 text-[1.15rem] mt-[2rem] mb-[.5rem] font-MontSemiBold"
+      >
+        Current Price
+      </h3>
+      <div
+        class="text-[.94rem] text-white/75 leading-[2rem] border-t-[1px] border-[#ffffff13] pt-[1rem]"
+      >
+        ETH {{ currentNFT?.price }}
+      </div>
+    </div>
+  </section>
+</div>
